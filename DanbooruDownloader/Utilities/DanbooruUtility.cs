@@ -22,6 +22,8 @@ namespace DanbooruDownloader.Utilities
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("DanbooruDownloader/1.0");
+                
                 string url = GetPostsUrl(startId, username, apikey);
                 string jsonString = await client.GetStringAsync(url);
 
